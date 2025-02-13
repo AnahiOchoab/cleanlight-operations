@@ -1,3 +1,4 @@
+
 import { ArrowRight, Users, Music, User, TrendingUp, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -44,7 +45,7 @@ const Index = () => {
             transition={{ duration: 0.5 }}
             className="inline-block px-4 py-1 mb-6 text-sm font-medium bg-gray-100 rounded-full text-gray-900"
           >
-            Welcome to Our Agency
+            Welcome to Digital Ops
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -126,7 +127,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               className="text-4xl font-semibold mb-6 text-gray-900"
             >
-              We're a team of digital experts
+              We're Digital Ops
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
