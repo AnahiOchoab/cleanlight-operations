@@ -1,3 +1,4 @@
+
 import { ArrowRight, Users, Music, User, TrendingUp, Palette, Phone, Mail, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -61,8 +62,8 @@ const Index = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight text-gray-900"
           >
-            We Create Digital
-            <br /> Experiences
+            We manage your digital operations
+            <br /> so you can create freely.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
