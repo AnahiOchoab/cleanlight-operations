@@ -1,6 +1,12 @@
 
-import { ArrowRight, Users, Music, User, TrendingUp, Palette, Phone, Mail, Instagram } from "lucide-react";
+import { ArrowRight, Users, Music, User, TrendingUp, Palette, Phone, Mail, Instagram, Menu } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 const Index = () => {
   const services = [
@@ -45,27 +51,45 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="fixed top-4 md:top-8 right-4 md:right-8 z-50 flex gap-2 md:gap-4">
-        <button
-          onClick={() => scrollToSection('services')}
-          className="px-2 py-1 md:px-4 md:py-2 text-sm md:text-base bg-white text-gray-900 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200"
-        >
-          Services
-        </button>
-        <button
-          onClick={() => scrollToSection('about')}
-          className="px-2 py-1 md:px-4 md:py-2 text-sm md:text-base bg-white text-gray-900 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200"
-        >
-          About Us
-        </button>
-        <button
-          onClick={() => scrollToSection('contact')}
-          className="px-2 py-1 md:px-4 md:py-2 text-sm md:text-base bg-white text-gray-900 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200"
-        >
-          Contact
-        </button>
+      <div className="fixed top-4 right-4 z-50">
+        <Drawer>
+          <DrawerTrigger asChild>
+            <button className="p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200">
+              <Menu className="w-5 h-5" />
+            </button>
+          </DrawerTrigger>
+          <DrawerContent>
+            <div className="p-4 space-y-3">
+              <DrawerClose asChild>
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="w-full px-4 py-2 text-sm text-left bg-white hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                >
+                  Services
+                </button>
+              </DrawerClose>
+              <DrawerClose asChild>
+                <button
+                  onClick={() => scrollToSection('about')}
+                  className="w-full px-4 py-2 text-sm text-left bg-white hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                >
+                  About Us
+                </button>
+              </DrawerClose>
+              <DrawerClose asChild>
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full px-4 py-2 text-sm text-left bg-white hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                >
+                  Contact
+                </button>
+              </DrawerClose>
+            </div>
+          </DrawerContent>
+        </Drawer>
       </div>
 
+      {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-white opacity-90" />
