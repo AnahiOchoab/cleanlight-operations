@@ -1,28 +1,32 @@
-
-import { ArrowRight, Monitor, Brush, BarChart, Users } from "lucide-react";
+import { ArrowRight, Users, Music, User, TrendingUp, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Index = () => {
   const services = [
     {
-      icon: <Monitor className="w-6 h-6" />,
-      title: "Digital Strategy",
-      description: "Comprehensive digital solutions tailored to your business needs",
-    },
-    {
-      icon: <Brush className="w-6 h-6" />,
-      title: "Creative Direction",
-      description: "Innovative design and branding that captures attention",
-    },
-    {
-      icon: <BarChart className="w-6 h-6" />,
-      title: "Performance Marketing",
-      description: "Data-driven campaigns that deliver measurable results",
-    },
-    {
       icon: <Users className="w-6 h-6" />,
-      title: "Social Media",
-      description: "Strategic social media management and growth",
+      title: "Influencer Marketing",
+      description: "Content Strategy, Social Media Copywriting, Content Management & Monetization",
+    },
+    {
+      icon: <Music className="w-6 h-6" />,
+      title: "Music Distribution Support",
+      description: "Communication with Digital Music Distribution Teams, Brand Negotiations & Campaigns",
+    },
+    {
+      icon: <User className="w-6 h-6" />,
+      title: "Client Relations",
+      description: "Customer, Promoter, and Booking Relations Management",
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6" />,
+      title: "Growth Services",
+      description: "Social Media Growth Strategies",
+    },
+    {
+      icon: <Palette className="w-6 h-6" />,
+      title: "Creative Services",
+      description: "Graphic Design, Reports Analysis",
     },
   ];
 
@@ -75,37 +79,29 @@ const Index = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-1 mb-6 text-sm font-medium bg-gray-100 rounded-full text-gray-900"
-            >
-              Our Services
-            </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-4xl font-semibold mb-4 text-gray-900"
+              className="text-4xl font-semibold mb-12 text-gray-900"
             >
-              What We Do Best
+              Our Services
             </motion.h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {services.map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-200"
+                className="p-8 bg-white rounded-2xl hover:shadow-lg transition-shadow duration-200"
               >
-                <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-6">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+                <h3 className="text-xl font-semibold mb-3 text-gray-900">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{service.description}</p>
               </motion.div>
             ))}
           </div>
