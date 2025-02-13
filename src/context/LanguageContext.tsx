@@ -56,7 +56,7 @@ const translations: Translations = {
     growthServices: "Servicios de Crecimiento",
     growthServicesDesc: "Estrategias de Crecimiento en Redes Sociales",
     creativeServices: "Servicios Creativos",
-    creativeServicesDesc: "Diseño Gráfico, Análisis de Informes",
+    creativeServicesDesc: "Diseño Gráfico, Análisis de Reportes",
     aboutUsTitle: "Somos Digital Ops",
     aboutUsDesc: "Con años de experiencia en operaciones digitales, ayudamos a negocios, empresas y artistas a alcanzar sus objetivos a través de soluciones digitales estratégicas y excelencia creativa.",
     getInTouch: "Contáctanos",
