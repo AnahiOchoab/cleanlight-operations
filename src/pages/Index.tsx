@@ -1,5 +1,5 @@
 
-import { ArrowRight, Users, Music, User, TrendingUp, Palette, Phone, Mail, Instagram, Menu } from "lucide-react";
+import { ArrowRight, Users, Music, User, TrendingUp, Palette, Phone, Mail, Instagram, Menu, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import {
   Drawer,
@@ -7,33 +7,36 @@ import {
   DrawerContent,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Index = () => {
+  const { language, setLanguage, t } = useLanguage();
+
   const services = [
     {
       icon: <Users className="w-6 h-6" />,
-      title: "Influencer Marketing",
-      description: "Content Strategy, Social Media Copywriting, Content Management & Monetization",
+      title: t('influencerMarketing'),
+      description: t('influencerMarketingDesc'),
     },
     {
       icon: <Music className="w-6 h-6" />,
-      title: "Music Distribution Support",
-      description: "Communication with Digital Music Distribution Teams, Brand Negotiations & Campaigns",
+      title: t('musicDistribution'),
+      description: t('musicDistributionDesc'),
     },
     {
       icon: <User className="w-6 h-6" />,
-      title: "Client Relations",
-      description: "Customer, Promoter, and Booking Relations Management",
+      title: t('clientRelations'),
+      description: t('clientRelationsDesc'),
     },
     {
       icon: <TrendingUp className="w-6 h-6" />,
-      title: "Growth Services",
-      description: "Social Media Growth Strategies",
+      title: t('growthServices'),
+      description: t('growthServicesDesc'),
     },
     {
       icon: <Palette className="w-6 h-6" />,
-      title: "Creative Services",
-      description: "Graphic Design, Reports Analysis",
+      title: t('creativeServices'),
+      description: t('creativeServicesDesc'),
     },
   ];
 
@@ -49,9 +52,19 @@ const Index = () => {
     }
   };
 
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'es' : 'en');
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      <div className="fixed top-4 right-4 z-50">
+      <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
+        <button
+          onClick={toggleLanguage}
+          className="p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200"
+        >
+          <Globe className="w-5 h-5" />
+        </button>
         <Drawer>
           <DrawerTrigger asChild>
             <button className="p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200">
@@ -65,7 +78,7 @@ const Index = () => {
                   onClick={() => scrollToSection('services')}
                   className="w-full px-4 py-2 text-sm text-left bg-white hover:bg-gray-50 rounded-lg transition-colors duration-200"
                 >
-                  Services
+                  {t('services')}
                 </button>
               </DrawerClose>
               <DrawerClose asChild>
@@ -73,7 +86,7 @@ const Index = () => {
                   onClick={() => scrollToSection('about')}
                   className="w-full px-4 py-2 text-sm text-left bg-white hover:bg-gray-50 rounded-lg transition-colors duration-200"
                 >
-                  About Us
+                  {t('aboutUs')}
                 </button>
               </DrawerClose>
               <DrawerClose asChild>
@@ -81,7 +94,7 @@ const Index = () => {
                   onClick={() => scrollToSection('contact')}
                   className="w-full px-4 py-2 text-sm text-left bg-white hover:bg-gray-50 rounded-lg transition-colors duration-200"
                 >
-                  Contact
+                  {t('contact')}
                 </button>
               </DrawerClose>
             </div>
@@ -113,8 +126,7 @@ const Index = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight text-gray-900 leading-tight"
           >
-            We manage your digital operations so
-            <br /> you can create freely.
+            {t('tagline')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -122,7 +134,7 @@ const Index = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto"
           >
-            Elevating brands through strategic digital operations and creative excellence
+            {t('subtitle')}
           </motion.p>
           <motion.button
             initial={{ opacity: 0, y: 20 }}
@@ -130,12 +142,13 @@ const Index = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors duration-200"
           >
-            Get Started
+            {t('getStarted')}
             <ArrowRight className="ml-2 w-4 h-4" />
           </motion.button>
         </div>
       </section>
 
+      {/* Services Section */}
       <section id="services" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
@@ -145,7 +158,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               className="text-4xl font-semibold mb-12 text-gray-900"
             >
-              Our Services
+              {t('ourServices')}
             </motion.h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -168,6 +181,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* About Section */}
       <section id="about" className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
@@ -177,7 +191,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               className="inline-block px-4 py-1 mb-6 text-sm font-medium bg-white rounded-full text-gray-900"
             >
-              About Us
+              {t('aboutUs')}
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -185,7 +199,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               className="text-4xl font-semibold mb-6 text-gray-900"
             >
-              We're Digital Ops
+              {t('aboutUsTitle')}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -193,13 +207,13 @@ const Index = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg text-gray-600 mb-8"
             >
-              With years of experience in digital operations, we help businesses, companies, and artists
-              achieve their goals through strategic digital solutions and creative excellence.
+              {t('aboutUsDesc')}
             </motion.p>
           </div>
         </div>
       </section>
 
+      {/* Contact Section */}
       <section id="contact" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
@@ -209,7 +223,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               className="inline-block px-4 py-1 mb-6 text-sm font-medium bg-gray-100 rounded-full text-gray-900"
             >
-              Get in Touch
+              {t('getInTouch')}
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -217,7 +231,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               className="text-4xl font-semibold mb-6 text-gray-900"
             >
-              Let's Create Something Amazing Together
+              {t('createTogether')}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -225,7 +239,7 @@ const Index = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg text-gray-600 mb-12"
             >
-              Ready to take your digital presence to the next level? Contact us to discuss your project.
+              {t('contactDesc')}
             </motion.p>
 
             <motion.div
@@ -238,7 +252,7 @@ const Index = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Name
+                      {t('name')}
                     </label>
                     <input
                       type="text"
@@ -250,7 +264,7 @@ const Index = () => {
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email
+                      {t('email')}
                     </label>
                     <input
                       type="email"
@@ -263,7 +277,7 @@ const Index = () => {
                 </div>
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    Subject
+                    {t('subject')}
                   </label>
                   <input
                     type="text"
@@ -275,7 +289,7 @@ const Index = () => {
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message
+                    {t('message')}
                   </label>
                   <textarea
                     id="message"
@@ -290,7 +304,7 @@ const Index = () => {
                     type="submit"
                     className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors duration-200"
                   >
-                    Send Message
+                    {t('sendMessage')}
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </button>
                 </div>
