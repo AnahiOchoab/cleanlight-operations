@@ -1,5 +1,5 @@
 
-import { ArrowRight, Users, Music, User, TrendingUp, Palette } from "lucide-react";
+import { ArrowRight, Users, Music, User, TrendingUp, Palette, Phone, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Index = () => {
@@ -30,6 +30,11 @@ const Index = () => {
       description: "Graphic Design, Reports Analysis",
     },
   ];
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Form submission logic can be added here
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -166,19 +171,105 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg text-gray-600 mb-8"
+              className="text-lg text-gray-600 mb-12"
             >
               Ready to take your digital presence to the next level? Contact us to discuss your project.
             </motion.p>
-            <motion.button
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-white rounded-2xl p-8 shadow-sm mb-12"
+            >
+              <form onSubmit={handleSubmit} className="space-y-6 text-left">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                      required
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                    required
+                  ></textarea>
+                </div>
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors duration-200"
+                  >
+                    Send Message
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors duration-200"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto"
             >
-              Contact Us
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </motion.button>
+              <div className="flex items-center justify-center space-x-3">
+                <Phone className="w-5 h-5 text-gray-600" />
+                <a
+                  href="tel:+526142501446"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  +52 614 250 1446
+                </a>
+              </div>
+              <div className="flex items-center justify-center space-x-3">
+                <Mail className="w-5 h-5 text-gray-600" />
+                <a
+                  href="mailto:hi@digitalopsagency.com"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  hi@digitalopsagency.com
+                </a>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
