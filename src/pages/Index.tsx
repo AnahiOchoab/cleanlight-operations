@@ -60,10 +60,10 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight text-gray-900"
+            className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight text-gray-900 leading-tight"
           >
-            We manage your digital operations
-            <br /> so you can create freely.
+            We manage your digital operations so
+            <br /> you can create freely.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
