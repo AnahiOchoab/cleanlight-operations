@@ -249,7 +249,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-8"
+              className="flex flex-col items-center space-y-4 mb-8"
             >
               <div className="flex items-center justify-center space-x-3">
                 <Phone className="w-5 h-5 text-gray-600" />
