@@ -1,4 +1,3 @@
-
 import { ArrowRight, Users, Music, User, TrendingUp, Palette, Phone, Mail, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -36,9 +35,36 @@ const Index = () => {
     // Form submission logic can be added here
   };
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+      <div className="fixed top-8 right-8 z-50 flex gap-4">
+        <button
+          onClick={() => scrollToSection('services')}
+          className="px-4 py-2 bg-white text-gray-900 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200"
+        >
+          Services
+        </button>
+        <button
+          onClick={() => scrollToSection('about')}
+          className="px-4 py-2 bg-white text-gray-900 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200"
+        >
+          About Us
+        </button>
+        <button
+          onClick={() => scrollToSection('contact')}
+          className="px-4 py-2 bg-white text-gray-900 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200"
+        >
+          Contact
+        </button>
+      </div>
+
       <section className="relative h-screen flex items-center justify-center px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-white opacity-90" />
@@ -85,8 +111,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20 px-4">
+      <section id="services" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <motion.h2
@@ -118,8 +143,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section id="about" className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
             <motion.span
@@ -151,8 +175,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 px-4">
+      <section id="contact" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
             <motion.span
