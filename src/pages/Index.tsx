@@ -44,6 +44,18 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-white opacity-90" />
         </div>
         <div className="container mx-auto text-center z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="mb-12"
+          >
+            <img
+              src="/lovable-uploads/9349a508-4552-4f93-b649-74c61daa5592.png"
+              alt="Digital Ops Logo"
+              className="h-24 mx-auto"
+            />
+          </motion.div>
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
